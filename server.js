@@ -69,7 +69,7 @@ app.delete("/Chesse/:id",async(req,res)=>{
 });
 
 //Update Route
-app/put("/Chesse/:id",async(req,res)=>{
+app.put("/Chesse/:id",async(req,res)=>{
     try{
         res.json(
             await Chesse.findByIdAndUpdate(req.params.id, req.body, {new:true})
