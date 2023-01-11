@@ -51,11 +51,31 @@ app.get("/Chesse", async(req,res)=>{
 });
 
 //Chesse Create route
-app.post("Chesse",async(req,res)=>{
+app.post("/Chesse",async(req,res)=>{
     try{
         res.json(await Chesse.create(req.body));
     }catch(error){
         res.send(400).json(error);
+    }
+});
+
+//Delete Route
+app.delete("/Chesse/:id",async(req,res)=>{
+    try{
+        res.json(await Chesse.findByIdAndRemove(req.params.id));
+    } catch(error){
+        res.status(400).json(error);
+    }
+});
+
+//Update Route
+app/put("/Chesse/:id",async(req,res)=>{
+    try{
+        res.json(
+            await Chesse.findByIdAndUpdate(req.params.id, req.body, {new:true})
+        );
+    }catch(error){
+        res.status(400).json(error);
     }
 });
 
