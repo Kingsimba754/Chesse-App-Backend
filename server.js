@@ -41,14 +41,23 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("hello world");
 });
-//People Index people
+//Chesse Index route
 app.get("/Chesse", async(req,res)=>{
     try{
         res.json(await Chesse.find({}));
     } catch(error){
         res.status(400).json(error)
     }
-})
+});
+
+//Chesse Create route
+app.post("Chesse",async(req,res)=>{
+    try{
+        res.json(await Chesse.create(req.body));
+    }catch(error){
+        res.send(400).json(error);
+    }
+});
 
 //LISTENER
 app.listen(PORT,() => 
