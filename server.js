@@ -8,3 +8,7 @@ const { PORT = 3000 } = process.env;
 app.get("/", (req, res) => {
   res.send("hello world");
 });
+
+//LISTENER
+app.listen(PORT,() => 
+    console.log(`We are always listening on PORT: ${PORT}`));
